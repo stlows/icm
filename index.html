@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ICM -Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <p>Based on <a href="https://forumserver.twoplustwo.com/15/poker-theory/new-algorithm-calculate-icm-large-tournaments-1098489/index3.html">this 2p2 post.</a></p>
+    <div id="app">
+        <ul>
+            <li v-for="stackSize in stackSizes"><input type="text" v-model="stackSize.value"></li>
+            <li @click="addStackSize">Add a new stack size</li>
+            <li>Add <input v-model="numberOfStackSizesToAdd"> new stack sizes <button @click="addMultipleStackSizes">Add</button></li>
+        </ul>
+        <ul>
+                <li v-for="prize in prizes"><input type="text" v-model="prize.rankStart"> à <input type="text" v-model="prize.rankEnd"> - <input type="text" v-model="prize.value"></li>
+                <li @click="addPrize">Add a new Prize</li>
+                <li>Add <input v-model="numberOfPrizesToAdd"> new prizes <button @click="addMultiplePrizes">Add</button></li>
+        </ul>
+        <input type="text" v-model="n">
+    <pre>{{ $data }}</pre>
+</div>
+    <script src="app.js"></script>
+</body>
+</html>
