@@ -9,10 +9,10 @@ var app = new Vue({
     },
     methods: {
         addStackSize(){
-            this.stackSizes.push({value:5000});
+            this.stackSizes.push({value:5000 + this.stackSizes.length});
         },
         addPrize(){
-            this.prizes.push({rankStart: this.prizes.length + 1, rankEnd:this.prizes.length + 1, value:1000});
+            this.prizes.push({rankStart: this.prizes.length + 1, rankEnd:this.prizes.length + 1, value:1000+this.prizes.length});
         },
         addMultipleStackSizes(){
             for(var i = 0; i < this.numberOfStackSizesToAdd; i++){
@@ -23,6 +23,15 @@ var app = new Vue({
             for(var i = 0; i < this.numberOfPrizesToAdd; i++){
                 this.addPrize()
             }
+        },
+        calculate(){
+            console.log("calculating...");
+        },
+        deleteStackSize(i){
+            this.stackSizes.splice(i,1)
+        },
+        deletePrize(i){
+            this.prizes.splice(i,1)
         }
     },
     created(){
